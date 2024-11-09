@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutForIndex.cshtml"; 
+}
+
+<h1>Index</h1>
+<hr />
+<h1>View Data</h1>
+@ViewData["data"]
+@ViewData["username"]
+<br />
+@ViewData["datetime"]
+@{
+    foreach (var item in (string[])ViewData["arr"])
+    {
+        <h2>@item</h2>
+    }
+}
+<hr />
+@{
+    foreach (var item in (List<string>)ViewData["sports"])
+    {
+        <h2>@item</h2>
+    }
+}
+
+<table border="1">
+@{
+    foreach (var item in (Dictionary<string, int>)ViewData["dictionaryExample"])
+    {
+            <tr>
+                <td> @item.Value </td>
+                <td> @item.Key </td>
+            </tr>
+    }
+}
+</table>
+<hr />
+<h1>View Bag</h1>
+@ViewBag.data
+@ViewBag.shortDate
+@{
+    foreach (var item in ViewBag.names)
+    {
+        <h2>@item</h2>
+    }
+}
+
+@{
+    if (ViewBag.users != null)
+    {
+        foreach (var item in ViewBag.users)
+        {
+            <div>
+                @item.Value
+                @item.Key
+            </div>
+        }
+    }
+        
+}
+@ViewBag.myName
+<hr />
+<h1>Temp Data</h1>
+@TempData["tempData"]
+<hr />
+<h1>Current date and time is @DateTime.Now</h1>
+<h1>Current year is @DateTime.Now.Year</h1>
+
+@{
+    var name = "Rutvik";
+    var age = "23";
+}
+
+<h2>Name = @name</h2>
+<h2>Age = @age</h2>
+
+@{
+    var status = false;
+    if (status)
+    {
+        <h3>ok</h3>
+    }
+    else
+    {
+        <h3>NOT ok</h3>
+    }
+}
+
+@{
+    var day = 1;
+    switch (day)
+    {
+        case 1:
+            <h2>Sunday</h2>
+            break;
+        case 2:
+            <h2>Monday</h2>
+            break;
+        default:
+            <h2>Number should be 1-7</h2>
+            break;
+    }
+}
+
+@{
+    for (int i = 1; i < 11; i++)
+    {
+        <h2>@i</h2>
+    }
+}
+
+@{
+    string[] days = ["Monday", "Tuesday"];
+
+    foreach (var item in days)
+    {
+        <h2>@item</h2>
+    }
+}
